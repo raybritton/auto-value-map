@@ -5,9 +5,6 @@ plugins {
 
 apply plugin: 'java'
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.squareup:javapoet:1.7.0'
@@ -29,22 +26,9 @@ ext {
     artifact = 'auto-value-map'
 
     libraryDescription = 'Extension for autovalue that adds toMap/fromMap methods to autovalue objects'
-
-    siteUrl = 'https://bitbucket.org/raybritton/autovaluemap'
-    gitUrl = 'https://bitbucket.org/raybritton/autovaluemap.git'
-
-    libraryVersion = versionString
-
-    developerId = 'raybritton'
-    developerName = 'Ray Britton'
-    developerEmail = 'raybritton@gmail.com'
-
-    licenseName = 'Mozilla Public License Version 2.0'
-    licenseUrl = 'https://www.mozilla.org/media/MPL/2.0/index.txt'
-    allLicenses = ["MPL-2.0"]
 }
 
-apply from: 'bintray.gradle'
+apply from: '../bintray.gradle'
 
 //to release
 //run gradlew clean check assemble install bintrayUpload

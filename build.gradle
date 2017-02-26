@@ -5,19 +5,24 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
     }
 }
 
-ext.checkstyleVer = '7.5.1'
+project.ext.libraryVersion = "1.0.0-rc1.1"
+project.ext.siteUrl = 'https://github.com/raybritton/auto-value-map'
+project.ext.gitUrl = 'git@github.com:raybritton/auto-value-map.git'
+project.ext.developerId = 'raybritton'
+project.ext.developerName = 'Ray Britton'
+project.ext.developerEmail = 'raybritton@gmail.com'
 
-ext.versionString = "1.0.0-rc1"
+project.ext.licenseName = ' Apache License Version 2.0'
+project.ext.licenseUrl = 'https://www.apache.org/licenses/LICENSE-2.0'
+project.ext.allLicenses = ["Apache-2.0"]
 
 allprojects {
     repositories {
         jcenter()
     }
-
 }
 
 task clean(type: Delete) {
