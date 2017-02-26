@@ -5,16 +5,9 @@ plugins {
 
 apply plugin: 'java'
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
-
 dependencies {
     compile project(":auto-value-map")
     compile 'com.google.code.gson:gson:2.8.0'
-
-    testCompile 'junit:junit:4.11'
-    testCompile 'com.google.testing.compile:compile-testing:0.8'
-    testCompile files(org.gradle.internal.jvm.Jvm.current().getToolsJar())
 }
 
 ext {
@@ -26,22 +19,9 @@ ext {
     artifact = 'gson-parsers'
 
     libraryDescription = 'Adapters for List and Arrays (of primitives) to json'
-
-    siteUrl = 'https://bitbucket.org/raybritton/autovaluemap'
-    gitUrl = 'https://bitbucket.org/raybritton/autovaluemap.git'
-
-    libraryVersion = versionString
-
-    developerId = 'raybritton'
-    developerName = 'Ray Britton'
-    developerEmail = 'raybritton@gmail.com'
-
-    licenseName = 'Mozilla Public License Version 2.0'
-    licenseUrl = 'https://www.mozilla.org/media/MPL/2.0/index.txt'
-    allLicenses = ["MPL-2.0"]
 }
 
-apply from: 'bintray.gradle'
+apply from: '../bintray.gradle'
 
 //to release
 //run gradlew clean check assemble install bintrayUpload
