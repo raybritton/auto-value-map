@@ -4,7 +4,7 @@ import com.raybritton.autovaluemap.MapValueMaker;
 
 public class FloatMaker implements MapValueMaker<Float> {
     @Override
-    public Float make(String mapElementName) {
+    public Float make(String methodName) {
         return 0f;
     }
 }

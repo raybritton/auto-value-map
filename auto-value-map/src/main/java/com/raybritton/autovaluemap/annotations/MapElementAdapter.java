@@ -15,5 +15,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface MapElementAdapter {
     Class adapter() default InvalidAdapter.class;
-    Class mapType() default InvalidAdapter.class;
+    Class mapType() default String.class;
 }

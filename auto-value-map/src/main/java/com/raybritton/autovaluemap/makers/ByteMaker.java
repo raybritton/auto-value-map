@@ -4,7 +4,7 @@ import com.raybritton.autovaluemap.MapValueMaker;
 
 public class ByteMaker implements MapValueMaker<Byte> {
     @Override
-    public Byte make(String mapElementName) {
+    public Byte make(String methodName) {
         return 0;
     }
 }

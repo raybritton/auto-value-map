@@ -4,7 +4,7 @@ import com.raybritton.autovaluemap.MapValueMaker;
 
 public class CharMaker implements MapValueMaker<Character> {
     @Override
-    public Character make(String mapElementName) {
+    public Character make(String methodName) {
         return 0;
     }
 }

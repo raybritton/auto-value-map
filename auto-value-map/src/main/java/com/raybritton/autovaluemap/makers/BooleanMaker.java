@@ -4,7 +4,7 @@ import com.raybritton.autovaluemap.MapValueMaker;
 
 public class BooleanMaker implements MapValueMaker<Boolean> {
     @Override
-    public Boolean make(String mapElementName) {
+    public Boolean make(String methodName) {
         return false;
     }
 }

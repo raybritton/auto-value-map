@@ -4,7 +4,7 @@ import com.raybritton.autovaluemap.MapValueMaker;
 
 public class NullMaker implements MapValueMaker {
     @Override
-    public Object make(String mapElementName) {
+    public Object make(String methodName) {
         return null;
     }
 }
