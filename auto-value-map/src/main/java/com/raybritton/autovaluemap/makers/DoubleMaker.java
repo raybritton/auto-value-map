@@ -1,0 +1,10 @@
+package com.raybritton.autovaluemap.makers;
+
+import com.raybritton.autovaluemap.MapValueMaker;
+
+public class DoubleMaker implements MapValueMaker<Double> {
+    @Override
+    public Double make(String mapElementName) {
+        return 0.0;
+    }
+}
