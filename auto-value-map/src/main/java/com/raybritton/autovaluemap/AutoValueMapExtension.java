@@ -45,11 +45,11 @@ import static com.raybritton.autovaluemap.MapElement.Type.HIDDEN;
  * MapHide
  * This stops the value from the method being set in the map and when creating the object
  * null be set.
- * This can be changed to any value by setting a {@link MapValueMaker} and/or by using the
+ * This can be changed to any value by setting a {@link com.raybritton.autovaluemap.MapValueMaker} and/or by using the
  * value from the map by setting readFromMap to true
  * MapElementAdapter
  * By default the value from the method will be set in the map, if this is an object or
- * some other value that needs to be serialised then an {@link MapAdapter} will convert to and from
+ * some other value that needs to be serialised then an {@link com.raybritton.autovaluemap.MapAdapter} will convert to and from
  * the map and method value.
  * MapEnum
  * This will automatically handle serialising enums and must be set on enums.

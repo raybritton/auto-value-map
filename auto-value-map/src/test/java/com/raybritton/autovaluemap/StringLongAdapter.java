@@ -1,5 +1,7 @@
 package com.raybritton.autovaluemap;
 
+import com.raybritton.autovaluemap.MapAdapter;
+
 public class StringLongAdapter implements MapAdapter<Long, String> {
     @Override
     public Long fromMap(String methodName, String cal) {

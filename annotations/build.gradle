@@ -1,0 +1,30 @@
+plugins {
+    id "com.github.dcendents.android-maven" version "1.5"
+    id "com.jfrog.bintray" version "1.7.1"
+}
+
+apply plugin: 'java'
+
+compileJava {
+    targetCompatibility = 1.7
+    sourceCompatibility = 1.7
+}
+
+dependencies {
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'AutoValueMap-Annotations'
+
+    publishedGroupId = "com.raybritton.autovaluemap"
+    libraryName = 'Annotations'
+    artifact = 'annotations'
+
+    libraryDescription = 'Annotations for the AutoValue Map extension'
+}
+
+apply from: '../bintray.gradle'
+
+//to release
+//run gradlew clean check assemble install bintrayUpload
