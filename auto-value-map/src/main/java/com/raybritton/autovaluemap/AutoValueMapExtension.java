@@ -66,7 +66,7 @@ public class AutoValueMapExtension extends AutoValueExtension {
     public String generateClass(Context context, String className, String classToExtend, boolean isFinal) {
         List<MapElement> valueMethods = new ArrayList<>();
 
-        for (ExecutableElement element : context.abstractMethods()) {
+        for (ExecutableElement element : context.properties().values()) {
             MapElement item = MapElement.create(context, element);
             if (item != null) {
                 valueMethods.add(item);

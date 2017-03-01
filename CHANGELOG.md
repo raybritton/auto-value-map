@@ -1,3 +1,7 @@
+### 2.0.0-rc2
+
+* Use correct method to get properties
+
 ### 2.0.0-rc1.1
 
 * Moved annotations back to com.raybritton.autovaluemap.annotations
