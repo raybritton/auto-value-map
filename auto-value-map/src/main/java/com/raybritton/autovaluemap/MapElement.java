@@ -112,6 +112,25 @@ class MapElement {
                 TypeMirror valueMirror = (TypeMirror) AnnotationMirrors.getAnnotationValue(optMirror.get(), "value").getValue();
                 readFromMap = (boolean) AnnotationMirrors.getAnnotationValue(optMirror.get(), "readFromMap").getValue();
                 defaultValue = (ClassName) TypeName.get(valueMirror);
+                if (defaultValue.equals(ClassName.get(NullMaker.class))) {
+                    if (typeName.equals(TypeName.BOOLEAN)) {
+                        defaultValue = ClassName.get(BooleanMaker.class);
+                    } else if (typeName.equals(TypeName.BYTE)) {
+                        defaultValue = ClassName.get(ByteMaker.class);
+                    } else if (typeName.equals(TypeName.CHAR)) {
+                        defaultValue = ClassName.get(CharMaker.class);
+                    } else if (typeName.equals(TypeName.DOUBLE)) {
+                        defaultValue = ClassName.get(DoubleMaker.class);
+                    } else if (typeName.equals(TypeName.FLOAT)) {
+                        defaultValue = ClassName.get(FloatMaker.class);
+                    } else if (typeName.equals(TypeName.INT)) {
+                        defaultValue = ClassName.get(IntegerMaker.class);
+                    } else if (typeName.equals(TypeName.LONG)) {
+                        defaultValue = ClassName.get(LongMaker.class);
+                    } else if (typeName.equals(TypeName.SHORT)) {
+                        defaultValue = ClassName.get(ShortMaker.class);
+                    }
+                }
                 if (!nullable && defaultValue.equals(ClassName.get(NullMaker.class))) {
                     if (typeName.equals(TypeName.BOOLEAN.box())) {
                         defaultValue = ClassName.get(BooleanMaker.class);

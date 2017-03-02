@@ -47,9 +47,7 @@ Full list of supported types:
 
  **MapHide**
  Prevents an element from being included the map, by default when creating an object from a
- map null be set for an hidden elements, but this can be replaced by a `MapValueMaker` (such as `IntegerMaker` which makes
- the default value 0) and if you set `readFromMap` to true then the value in the map will be used if
- present otherwise the `MapValueMaker`s value will be used.
+ map null be set for nullable hidden elements and 0 or false for primitive or non-nullable boxed properties.
 
  **MapAdapter**
  Provide an adapter for a element, this can replace the built in conversion for supported types as well.
@@ -111,14 +109,14 @@ public static class StringListAdapter implements MapAdapter<List<String>, String
 Add a Gradle dependency:
 
 ```groovy
-annotationProcessor 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc2'
-provided 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc2'
+annotationProcessor 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc4'
+provided 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc4'
 
 // Optional needed if you wanted to use the annotations
-compile 'com.raybritton.autovaluemap:annotations:2.0.0-rc2'
+compile 'com.raybritton.autovaluemap:annotations:2.0.0-rc4'
 
 // Optional list adapters for String, Integer, Double and boolean
-compile 'com.raybritton.autovaluemap.gson:gson-parsers:2.0.0-rc2'
+compile 'com.raybritton.autovaluemap.gson:gson-parsers:2.0.0-rc4'
 ```
 
 ## License
