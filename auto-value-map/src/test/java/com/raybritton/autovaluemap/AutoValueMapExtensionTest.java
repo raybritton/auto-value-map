@@ -316,6 +316,7 @@ public class AutoValueMapExtensionTest {
                 "import java.util.Map;\n" +
                 "import com.raybritton.autovaluemap.annotations.MapEnum;\n" +
                 "import com.raybritton.autovaluemap.annotations.MapHide;\n" +
+                "import com.raybritton.autovaluemap.Nullable;\n" +
                 "import com.google.auto.value.AutoValue;\n" +
                 "@AutoValue\n" +
                 "public abstract class Example {\n" +
@@ -327,6 +328,8 @@ public class AutoValueMapExtensionTest {
                 "    public abstract String issuedByUserId();\n" +
                 "    @MapHide\n" +
                 "    public abstract Long observedFrom();\n" +
+                "    @Nullable\n" +
+                "    @MapHide\n" +
                 "    public abstract Long observedTo();\n" +
                 "    public abstract String spoilReason();\n" +
                 "    @MapEnum\n" +
@@ -341,6 +344,7 @@ public class AutoValueMapExtensionTest {
         JavaFileObject expected = JavaFileObjects.forSourceString("test.AutoValue_Example", "" +
                 "package test;\n" +
                 "\n" +
+                "import com.raybritton.autovaluemap.makers.LongMaker;\n" +
                 "import com.raybritton.autovaluemap.makers.NullMaker;\n" +
                 "import java.lang.Long;\n" +
                 "import java.lang.Object;\n" +
@@ -358,7 +362,6 @@ public class AutoValueMapExtensionTest {
                 "    map.put(\"webId\", webId());\n" +
                 "    map.put(\"issuedAt\", issuedAt());\n" +
                 "    map.put(\"issuedByUserId\", issuedByUserId());\n" +
-                "    map.put(\"observedTo\", observedTo());\n" +
                 "    map.put(\"spoilReason\", spoilReason());\n" +
                 "    if (status() != null) {\n" +
                 "      map.put(\"status\", status().name());\n" +
@@ -377,12 +380,18 @@ public class AutoValueMapExtensionTest {
                 "    String issuedByUserId = (String) map.get(\"issuedByUserId\");\n" +
                 "    Long observedFrom;\n" +
                 "    try {\n" +
-                "      NullMaker observedFromMaker = (NullMaker) NullMaker.class.newInstance();\n" +
+                "      LongMaker observedFromMaker = (LongMaker) LongMaker.class.newInstance();\n" +
                 "      observedFrom = (Long) observedFromMaker.make(\"observedFrom\");\n" +
                 "    } catch (InstantiationException | IllegalAccessException e) {\n" +
-                "      throw new IllegalStateException(\"Cannot instantiate NullMaker for observedFrom because \"+e.getMessage());\n" +
+                "      throw new IllegalStateException(\"Cannot instantiate LongMaker for observedFrom because \"+e.getMessage());\n" +
                 "    }\n" +
-                "    Long observedTo = (Long) map.get(\"observedTo\");\n" +
+                "    Long observedTo;\n" +
+                "    try {\n" +
+                "      NullMaker observedToMaker = (NullMaker) NullMaker.class.newInstance();\n" +
+                "      observedTo = (Long) observedToMaker.make(\"observedTo\");\n" +
+                "    } catch (InstantiationException | IllegalAccessException e) {\n" +
+                "      throw new IllegalStateException(\"Cannot instantiate NullMaker for observedTo because \"+e.getMessage());\n" +
+                "    }\n" +
                 "    String spoilReason = (String) map.get(\"spoilReason\");\n" +
                 "    Example.Status status = null;\n" +
                 "    if (map.get(\"status\") != null) {\n" +
