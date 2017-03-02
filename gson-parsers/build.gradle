@@ -5,9 +5,15 @@ plugins {
 
 apply plugin: 'java'
 
+compileJava {
+    targetCompatibility = 1.7
+    sourceCompatibility = 1.7
+}
+
 dependencies {
-    compile project(":auto-value-map")
+    compileOnly project(":auto-value-map")
     compile 'com.google.code.gson:gson:2.8.0'
+    compile project(':annotations')
 }
 
 ext {

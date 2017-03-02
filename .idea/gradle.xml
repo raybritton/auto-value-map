@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/annotations" />
             <option value="$PROJECT_DIR$/auto-value-map" />
             <option value="$PROJECT_DIR$/gson-parsers" />
           </set>

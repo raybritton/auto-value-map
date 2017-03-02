@@ -61,6 +61,7 @@ if (project.hasProperty("android")) { // Android libraries
 
     task javadocGen(type: Javadoc) {
         source = sourceSets.main.allJava
+        failOnError = false
     }
 }
 
