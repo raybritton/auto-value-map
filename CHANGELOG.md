@@ -1,3 +1,11 @@
+### 2.0.0-rc4
+
+* Include primitives in the non-null maker detection.
+
+### 2.0.0-rc3
+
+* When using @MapHide without @Nullable the maker won't be NullMaker (if possible)
+
 ### 2.0.0-rc2
 
 * Use correct method to get properties
