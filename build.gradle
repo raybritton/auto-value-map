@@ -8,7 +8,7 @@ buildscript {
     }
 }
 
-project.ext.libraryVersion = "2.0.0-rc2"
+project.ext.libraryVersion = "2.0.0-rc3"
 project.ext.siteUrl = 'https://github.com/raybritton/auto-value-map'
 project.ext.gitUrl = 'git@github.com:raybritton/auto-value-map.git'
 project.ext.developerId = 'raybritton'

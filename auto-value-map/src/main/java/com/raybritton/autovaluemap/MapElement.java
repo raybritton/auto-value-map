@@ -16,6 +16,7 @@ import com.raybritton.autovaluemap.makers.CharArrayMaker;
 import com.raybritton.autovaluemap.makers.CharMaker;
 import com.raybritton.autovaluemap.makers.DoubleArrayMaker;
 import com.raybritton.autovaluemap.makers.DoubleMaker;
+import com.raybritton.autovaluemap.makers.EmptyStringMaker;
 import com.raybritton.autovaluemap.makers.FloatArrayMaker;
 import com.raybritton.autovaluemap.makers.FloatMaker;
 import com.raybritton.autovaluemap.makers.IntArrayMaker;
@@ -27,6 +28,8 @@ import com.raybritton.autovaluemap.makers.ShortArrayMaker;
 import com.raybritton.autovaluemap.makers.ShortMaker;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
+
+import java.util.Locale;
 
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.ExecutableElement;
@@ -73,8 +76,9 @@ class MapElement {
     private String adapterFieldName;
     private final ClassName defaultValue;
     private final boolean readFromMap;
+    private final boolean nullable;
 
-    private MapElement(Type type, String methodName, String mapItemName, ClassName adapter, ClassName adapterType, TypeName returnType, ClassName defaultValue, boolean readFromMap) {
+    private MapElement(Type type, String methodName, String mapItemName, ClassName adapter, ClassName adapterType, TypeName returnType, ClassName defaultValue, boolean readFromMap, boolean nullable) {
         this.type = type;
         this.methodName = methodName;
         this.mapItemName = mapItemName;
@@ -83,6 +87,7 @@ class MapElement {
         this.returnType = returnType;
         this.defaultValue = defaultValue;
         this.readFromMap = readFromMap;
+        this.nullable = nullable;
     }
 
     static MapElement create(AutoValueExtension.Context context, ExecutableElement element) {
@@ -93,12 +98,41 @@ class MapElement {
         TypeName typeName = TypeName.get(element.getReturnType());
         ClassName defaultValue = null;
         boolean readFromMap = false;
+        boolean nullable = false;
+
+        for (AnnotationMirror mirror : element.getAnnotationMirrors()) {
+            if (mirror.getAnnotationType().asElement().getSimpleName().toString().toLowerCase(Locale.US).contentEquals("nullable")) {
+                nullable = true;
+            }
+        }
+
         if (element.getAnnotationsByType(MapHide.class).length > 0) {
             Optional<AnnotationMirror> optMirror = MoreElements.getAnnotationMirror(element, MapHide.class);
             if (optMirror.isPresent()) {
                 TypeMirror valueMirror = (TypeMirror) AnnotationMirrors.getAnnotationValue(optMirror.get(), "value").getValue();
                 readFromMap = (boolean) AnnotationMirrors.getAnnotationValue(optMirror.get(), "readFromMap").getValue();
                 defaultValue = (ClassName) TypeName.get(valueMirror);
+                if (!nullable && defaultValue.equals(ClassName.get(NullMaker.class))) {
+                    if (typeName.equals(TypeName.BOOLEAN.box())) {
+                        defaultValue = ClassName.get(BooleanMaker.class);
+                    } else if (typeName.equals(TypeName.BYTE.box())) {
+                        defaultValue = ClassName.get(ByteMaker.class);
+                    } else if (typeName.equals(TypeName.CHAR.box())) {
+                        defaultValue = ClassName.get(CharMaker.class);
+                    } else if (typeName.equals(TypeName.DOUBLE.box())) {
+                        defaultValue = ClassName.get(DoubleMaker.class);
+                    } else if (typeName.equals(TypeName.FLOAT.box())) {
+                        defaultValue = ClassName.get(FloatMaker.class);
+                    } else if (typeName.equals(TypeName.INT.box())) {
+                        defaultValue = ClassName.get(IntegerMaker.class);
+                    } else if (typeName.equals(TypeName.LONG.box())) {
+                        defaultValue = ClassName.get(LongMaker.class);
+                    } else if (typeName.equals(TypeName.SHORT.box())) {
+                        defaultValue = ClassName.get(ShortMaker.class);
+                    } else if (typeName.equals(TypeName.get(String.class))) {
+                        defaultValue = ClassName.get(EmptyStringMaker.class);
+                    }
+                }
             }
             type = Type.HIDDEN;
         } else if (element.getAnnotationsByType(MapElementAdapter.class).length > 0) {
@@ -161,7 +195,7 @@ class MapElement {
             if (defaultValue == null) {
                 defaultValue = type.defaultValue;
             }
-            return new MapElement(type, element.getSimpleName().toString(), mapName, adapter, adapterType, typeName, defaultValue, readFromMap);
+            return new MapElement(type, element.getSimpleName().toString(), mapName, adapter, adapterType, typeName, defaultValue, readFromMap, nullable);
         } else {
             Utils.warning(context, "AutoValueMap does not support type", element);
             return null;
