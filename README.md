@@ -112,7 +112,7 @@ Add a Gradle dependency:
 annotationProcessor 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc4'
 provided 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc4'
 
-// Optional needed if you wanted to use the annotations
+// Optional needed if you wanted to use MapValueMakers or MapAdapters
 compile 'com.raybritton.autovaluemap:annotations:2.0.0-rc4'
 
 // Optional list adapters for String, Integer, Double and boolean
