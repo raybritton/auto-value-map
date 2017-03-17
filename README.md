@@ -109,14 +109,14 @@ public static class StringListAdapter implements MapAdapter<List<String>, String
 Add a Gradle dependency:
 
 ```groovy
-annotationProcessor 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc4'
-provided 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc4'
+annotationProcessor 'com.raybritton.autovaluemap:auto-value-map:2.1.0'
+provided 'com.raybritton.autovaluemap:auto-value-map:2.1.0'
 
 // Optional needed if you wanted to use @MapHide or @MapElementAdapter
-compile 'com.raybritton.autovaluemap:annotations:2.0.0-rc4'
+compile 'com.raybritton.autovaluemap:annotations:2.1.0'
 
 // Optional list adapters for String, Integer, Double and boolean
-compile 'com.raybritton.autovaluemap.gson:gson-parsers:2.0.0-rc4'
+compile 'com.raybritton.autovaluemap.gson:gson-parsers:2.1.0'
 ```
 
 ## License
