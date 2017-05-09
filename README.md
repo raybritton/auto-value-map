@@ -47,12 +47,12 @@ Full list of supported types:
 
  **MapHide**
  Prevents an element from being included the map, by default when creating an object from a
- map null be set for nullable hidden elements and 0 or false for primitive or non-nullable boxed properties.
+ map null be set for nullable hidden elements and 0 or false for primitive or non-nullable boxed primitives.
 
  **MapAdapter**
  Provide an adapter for a element, this can replace the built in conversion for supported types as well.
  The adapter must be specified and the `mapType` must be set if not string.
- The `mapType` is the type for the data in the map. The adpater must convert from and to the method type and the map type.
+ The `mapType` is the type for the data in the map. The adapter must convert from and to the method type and the map type.
 
  **MapElementName**
  By default the map key is the method name this can be changed using `@MapElementName`
