@@ -47,12 +47,12 @@ Full list of supported types:
 
  **MapHide**
  Prevents an element from being included the map, by default when creating an object from a
- map null be set for nullable hidden elements and 0 or false for primitive or non-nullable boxed properties.
+ map null be set for nullable hidden elements and 0 or false for primitive or non-nullable boxed primitives.
 
  **MapAdapter**
  Provide an adapter for a element, this can replace the built in conversion for supported types as well.
  The adapter must be specified and the `mapType` must be set if not string.
- The `mapType` is the type for the data in the map. The adpater must convert from and to the method type and the map type.
+ The `mapType` is the type for the data in the map. The adapter must convert from and to the method type and the map type.
 
  **MapElementName**
  By default the map key is the method name this can be changed using `@MapElementName`
@@ -109,14 +109,14 @@ public static class StringListAdapter implements MapAdapter<List<String>, String
 Add a Gradle dependency:
 
 ```groovy
-annotationProcessor 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc4'
-provided 'com.raybritton.autovaluemap:auto-value-map:2.0.0-rc4'
+annotationProcessor 'com.raybritton.autovaluemap:auto-value-map:2.1.0'
+provided 'com.raybritton.autovaluemap:auto-value-map:2.1.0'
 
 // Optional needed if you wanted to use @MapHide or @MapElementAdapter
-compile 'com.raybritton.autovaluemap:annotations:2.0.0-rc4'
+compile 'com.raybritton.autovaluemap:annotations:2.1.0'
 
 // Optional list adapters for String, Integer, Double and boolean
-compile 'com.raybritton.autovaluemap.gson:gson-parsers:2.0.0-rc4'
+compile 'com.raybritton.autovaluemap.gson:gson-parsers:2.1.0'
 ```
 
 ## License
