@@ -1,3 +1,8 @@
+### 2.2.0
+
+* Update to AutoValue 1.5
+* Add release scripts
+
 ### 2.0.0-rc4
 
 * Include primitives in the non-null maker detection.
