@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotations/annotations.iml" filepath="$PROJECT_DIR$/.idea/modules/annotations/annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotations/annotations.iml" filepath="$PROJECT_DIR$/.idea/modules/annotations/annotations.iml" group="annotations" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotations/annotations_main.iml" filepath="$PROJECT_DIR$/.idea/modules/annotations/annotations_main.iml" group="annotations" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotations/annotations_test.iml" filepath="$PROJECT_DIR$/.idea/modules/annotations/annotations_test.iml" group="annotations" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/auto-value-map.iml" filepath="$PROJECT_DIR$/.idea/modules/auto-value-map.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auto-value-map/auto-value-map-auto-value-map.iml" filepath="$PROJECT_DIR$/.idea/modules/auto-value-map/auto-value-map-auto-value-map.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gson-parsers/gson-parsers.iml" filepath="$PROJECT_DIR$/.idea/modules/gson-parsers/gson-parsers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auto-value-map/auto-value-map-auto-value-map.iml" filepath="$PROJECT_DIR$/.idea/modules/auto-value-map/auto-value-map-auto-value-map.iml" group="auto-value-map" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auto-value-map/auto-value-map-auto-value-map_main.iml" filepath="$PROJECT_DIR$/.idea/modules/auto-value-map/auto-value-map-auto-value-map_main.iml" group="auto-value-map" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auto-value-map/auto-value-map-auto-value-map_test.iml" filepath="$PROJECT_DIR$/.idea/modules/auto-value-map/auto-value-map-auto-value-map_test.iml" group="auto-value-map" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gson-parsers/gson-parsers.iml" filepath="$PROJECT_DIR$/.idea/modules/gson-parsers/gson-parsers.iml" group="gson-parsers" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gson-parsers/gson-parsers_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gson-parsers/gson-parsers_main.iml" group="gson-parsers" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gson-parsers/gson-parsers_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gson-parsers/gson-parsers_test.iml" group="gson-parsers" />
     </modules>
   </component>
 </project>

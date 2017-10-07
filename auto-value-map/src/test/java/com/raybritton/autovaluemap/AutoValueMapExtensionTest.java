@@ -134,7 +134,7 @@ public class AutoValueMapExtensionTest {
                 "    h *= 1000003;\n" +
                 "    h ^= this.clong.hashCode();\n" +
                 "    h *= 1000003;\n" +
-                "    h ^= (this.plong >>> 32) ^ this.plong;\n" +
+                "    h ^= (int) ((this.plong >>> 32) ^ this.plong);\n" +
                 "    return h;\n" +
                 "  }" +
                 "}"
@@ -537,7 +537,7 @@ public class AutoValueMapExtensionTest {
                 "    h *= 1000003;\n" +
                 "    h ^= this.clong.hashCode();\n" +
                 "    h *= 1000003;\n" +
-                "    h ^= (this.plong >>> 32) ^ this.plong;\n" +
+                "    h ^= (int) ((this.plong >>> 32) ^ this.plong);\n" +
                 "    return h;\n" +
                 "  }" +
                 "}"
@@ -688,7 +688,7 @@ public class AutoValueMapExtensionTest {
                 "    h *= 1000003;\n" +
                 "    h ^= this.clong.hashCode();\n" +
                 "    h *= 1000003;\n" +
-                "    h ^= (this.plong >>> 32) ^ this.plong;\n" +
+                "    h ^= (int) ((this.plong >>> 32) ^ this.plong);\n" +
                 "    return h;\n" +
                 "  }" +
                 "}"
