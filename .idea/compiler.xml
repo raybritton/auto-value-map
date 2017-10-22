@@ -4,8 +4,8 @@
     <bytecodeTargetLevel>
       <module name="annotations_main" target="1.7" />
       <module name="annotations_test" target="1.8" />
-      <module name="auto-value-map_main" target="1.7" />
-      <module name="auto-value-map_test" target="1.8" />
+      <module name="auto-value-map-auto-value-map_main" target="1.7" />
+      <module name="auto-value-map-auto-value-map_test" target="1.8" />
       <module name="gson-parsers_main" target="1.7" />
       <module name="gson-parsers_test" target="1.8" />
     </bytecodeTargetLevel>
