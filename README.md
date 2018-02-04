@@ -4,7 +4,7 @@ An extension for Google's [AutoValue](https://github.com/google/auto) that creat
 
 ## Usage
 
-Include auto-value-map in your project and add a `toMap()` method to your AutoValue object.
+Include auto-value-map in your project and add a `Map<String, Object> toMap()` method to your AutoValue object.
 
 ```java
 @AutoValue
@@ -25,7 +25,7 @@ public abstract class Person {
 ## Types
 
 Primitives, boxed primitives, strings, primtive arrays and enums (via `@MapEnum`) are supported by default. To support any other types,
-such as Integer[] you need to use a `MapAdapter`.
+such as `Integer[]` you need to use a `MapAdapter`.
 
 Full list of supported types:
 
@@ -51,7 +51,7 @@ Full list of supported types:
 
  **MapAdapter**
  Provide an adapter for a element, this can replace the built in conversion for supported types as well.
- The adapter must be specified and the `mapType` must be set if not string.
+ The adapter must be specified and the `mapType` must be set if not `String`.
  The `mapType` is the type for the data in the map. The adapter must convert from and to the method type and the map type.
 
  **MapElementName**
@@ -117,7 +117,7 @@ provided "com.raybritton.autovaluemap:auto-value-map:$autoValueVersion"
 // Optional needed if you wanted to use @MapHide or @MapElementAdapter
 compile "com.raybritton.autovaluemap:annotations:$autoValueVersion"
 
-// Optional list adapters for String, Integer, Double and boolean
+// Optional adapters for List<String>, List<Integer>, List<Double> and List<Boolean> which uses gson to serialize them
 compile "com.raybritton.autovaluemap.gson:gson-parsers:$autoValueVersion"
 ```
 
