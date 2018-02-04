@@ -616,6 +616,7 @@ public class AutoValueMapExtensionTest {
         JavaFileObject rootExpected = JavaFileObjects.forSourceString("test.$AutoValue_Test", "" +
                 "package test;\n" +
                 "\n" +
+                "import com.raybritton.autovaluemap.StringLongAdapter;\n" +
                 "import com.raybritton.autovaluemap.annotations.MapElementAdapter;\n" +
                 "import javax.annotation.Generated;\n" +
                 "\n" +
@@ -646,7 +647,7 @@ public class AutoValueMapExtensionTest {
                 "    return str;\n" +
                 "  }\n" +
                 "\n" +
-                "  @MapElementAdapter(adapter = com.raybritton.autovaluemap.StringLongAdapter.class, mapType = String.class)\n" +
+                "  @MapElementAdapter(adapter = StringLongAdapter.class, mapType = String.class)\n" +
                 "  @Override\n" +
                 "  public Long clong() {\n" +
                 "    return clong;\n" +
@@ -660,9 +661,9 @@ public class AutoValueMapExtensionTest {
                 "  @Override\n" +
                 "  public String toString() {\n" +
                 "    return \"Test{\"\n" +
-                "        + \"str=\" + str + \", \"\n" +
-                "        + \"clong=\" + clong + \", \"\n" +
-                "        + \"plong=\" + plong\n" +
+                "         + \"str=\" + str + \", \"\n" +
+                "         + \"clong=\" + clong + \", \"\n" +
+                "         + \"plong=\" + plong\n" +
                 "        + \"}\";\n" +
                 "  }\n" +
                 "\n" +
@@ -690,7 +691,7 @@ public class AutoValueMapExtensionTest {
                 "    h *= 1000003;\n" +
                 "    h ^= (int) ((this.plong >>> 32) ^ this.plong);\n" +
                 "    return h;\n" +
-                "  }" +
+                "  }\n" +
                 "}"
         );
 
@@ -848,6 +849,7 @@ public class AutoValueMapExtensionTest {
                 "package com.raybritton.autovaluemap;\n" +
                 "\n" +
                 "import com.raybritton.autovaluemap.annotations.MapHide;\n" +
+                "import com.raybritton.autovaluemap.makers.NullMaker;\n" +
                 "import javax.annotation.Generated;\n" +
                 "\n" +
                 "@Generated(\"com.google.auto.value.processor.AutoValueProcessor\")\n" +
@@ -861,7 +863,7 @@ public class AutoValueMapExtensionTest {
                 "  }\n" +
                 "\n" +
                 "  @Nullable\n" +
-                "  @MapHide(value = com.raybritton.autovaluemap.makers.NullMaker.class, readFromMap = true)\n" +
+                "  @MapHide(value = NullMaker.class, readFromMap = true)\n" +
                 "  @Override\n" +
                 "  public String str() {\n" +
                 "    return str;\n" +

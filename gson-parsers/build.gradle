@@ -12,7 +12,7 @@ compileJava {
 
 dependencies {
     compileOnly project(":auto-value-map")
-    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.google.code.gson:gson:2.8.2'
     compile project(':annotations')
 }
 
