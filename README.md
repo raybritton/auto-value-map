@@ -114,7 +114,7 @@ ext.autoMapVersion = '2.3.1'
 annotationProcessor "com.raybritton.autovaluemap:auto-value-map:$autoMapVersion"
 provided "com.raybritton.autovaluemap:auto-value-map:$autoMapVersion"
 
-// Optional needed if you wanted to use @MapHide or @MapElementAdapter
+// Optional needed if you wanted to use @MapHide, @MapElementName or @MapAdapter
 compile "com.raybritton.autovaluemap:annotations:$autoMapVersion"
 
 // Optional adapters for List<String>, List<Integer>, List<Double> and List<Boolean> which uses gson to serialize them
