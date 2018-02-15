@@ -1,4 +1,4 @@
-### 2.2.1
+### 2.3.1
 
 * Update to AutoValue 1.5.2, AutoCommon 0.8, JavaPoet 1.9.0, Gson 2.8.2 and AutoService 1.0-rc3
 * Update tests to match new output
